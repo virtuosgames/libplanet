@@ -352,14 +352,17 @@ namespace Libplanet.Blockchain
             DateTimeOffset? timestamp = null,
             IAction blockAction = null,
             Predicate<Currency> nativeTokenPredicate = null,
-            IImmutableSet<Currency> nativeTokens = null)
+            IImmutableSet<Currency> nativeTokens = null,
+            IEnumerable<Transaction<T>> manualTransaction = null)
         {
             privateKey ??= new PrivateKey();
             actions ??= ImmutableArray<T>.Empty;
+            manualTransaction ??= ImmutableArray<Transaction<T>>.Empty;
             Transaction<T>[] transactions =
             {
                 Transaction<T>.Create(0, privateKey, null, actions, timestamp: timestamp),
             };
+            transactions = transactions.Concat(manualTransaction).ToArray();
 
             BlockContent<T> content = new BlockContent<T>
             {
