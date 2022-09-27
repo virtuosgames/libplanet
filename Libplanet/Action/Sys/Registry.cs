@@ -3,7 +3,7 @@ using Bencodex.Types;
 
 namespace Libplanet.Action.Sys
 {
-    internal static class Registry
+    public static class Registry
     {
         private enum TypeId : short
         {
