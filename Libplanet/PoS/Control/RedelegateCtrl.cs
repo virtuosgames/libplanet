@@ -159,6 +159,9 @@ namespace Libplanet.PoS.Control
 
             states = UnbondingSetCtrl.AddRedelegationAddressSet(states, redelegation.Address);
 
+            states = DelegationMapCtrl.ReplaceDelegation(
+                states, redelegation.SrcDelegationAddress, redelegation.DstDelegationAddress);
+
             return states;
         }
 

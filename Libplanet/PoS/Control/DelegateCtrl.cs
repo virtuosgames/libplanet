@@ -87,6 +87,7 @@ namespace Libplanet.PoS.Control
                 blockHeight);
 
             states = states.SetState(delegation.Address, delegation.Serialize());
+            states = DelegationMapCtrl.AddDelegation(states, delegation.Address);
 
             return states;
         }

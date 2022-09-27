@@ -114,6 +114,11 @@ namespace Libplanet.PoS.Control
 
             states = UnbondingSetCtrl.AddUndelegationAddressSet(states, undelegation.Address);
 
+            if (states.GetBalance(undelegation.DelegationAddress, Asset.Share).Sign <= 0)
+            {
+                states = DelegationMapCtrl.UnbondDelegation(states, undelegation.DelegationAddress);
+            }
+
             return states;
         }
 
@@ -141,6 +146,11 @@ namespace Libplanet.PoS.Control
                 states, undelegation.ValidatorAddress) is { } validator))
             {
                 throw new NullValidatorException(undelegation.ValidatorAddress);
+            }
+
+            if (states.GetBalance(undelegation.DelegationAddress, Asset.Share).Sign <= 0)
+            {
+                states = DelegationMapCtrl.RebondDelegation(states, undelegation.DelegationAddress);
             }
 
             // Copy of cancelling amount
@@ -230,6 +240,8 @@ namespace Libplanet.PoS.Control
                     states, undelegation.Address);
             }
 
+            states = DelegationMapCtrl.RebondDelegation(states, undelegation.DelegationAddress);
+
             return states;
         }
 
@@ -290,6 +302,12 @@ namespace Libplanet.PoS.Control
             {
                 states = UnbondingSetCtrl.RemoveUndelegationAddressSet(
                     states, undelegation.Address);
+
+                if (states.GetBalance(undelegation.DelegationAddress, Asset.Share).Sign <= 0)
+                {
+                    states = DelegationMapCtrl.CompleteDelegation(
+                        states, undelegation.DelegationAddress);
+                }
             }
 
             return states;
