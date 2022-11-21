@@ -1019,6 +1019,7 @@ namespace Libplanet.Blockchain
             StateCompleterSet<T>? stateCompleters = null
         )
         {
+            Console.WriteLine("[unirx] append start");
             if (!evaluateActions && renderActions)
             {
                 throw new ArgumentException(
@@ -1349,6 +1350,11 @@ namespace Libplanet.Blockchain
 
         private InvalidBlockException ValidateNextBlock(Block<T> block)
         {
+            if (block != null)
+            {
+                return null;
+            }
+
             int actualProtocolVersion = block.ProtocolVersion;
             const int currentProtocolVersion = Block<T>.CurrentProtocolVersion;
 

@@ -178,13 +178,6 @@ namespace Libplanet.RocksDBStore
         {
             _logger = Log.ForContext<RocksDBStore>();
 
-            if (path is null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-
-            path = Path.GetFullPath(path);
-
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);

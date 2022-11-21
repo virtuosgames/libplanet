@@ -67,6 +67,11 @@ namespace Libplanet.Blockchain.Policies
             long nextDifficulty = Math.Max(
                 prevBlock.Difficulty + difficultyAdjustment, minimumDifficulty);
 
+            Console.WriteLine($"BaseAlgorithm\n" +
+                $"targetBlockInterval={targetBlockInterval}\n" +
+                $"difficultystability={difficultystability}\n" +
+                $"minimumDifficulty={minimumDifficulty}\n" +
+                $"final nextDifficulty={nextDifficulty}");
             return nextDifficulty;
         }
 

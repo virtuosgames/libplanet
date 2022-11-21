@@ -46,6 +46,18 @@ namespace Libplanet.Net
         internal static async Task<TurnClient> CreateTurnClient(
             IEnumerable<IceServer> iceServers)
         {
+            Console.WriteLine("CreateTurnClient start");
+            List<IceServer> iceList = iceServers.ToList();
+            Console.WriteLine($"CreateTurnClient iceServersList.Count={iceList.Count}");
+            int i = 0;
+            foreach (IceServer server in iceList)
+            {
+                ++i;
+                string cre = server.Credential;
+                string name = server.Username;
+                Console.WriteLine($"CreateTurnClient server({i}) Credential={cre} Username={name}");
+            }
+
             foreach (IceServer server in iceServers)
             {
                 Uri url = server.Url;

@@ -102,6 +102,7 @@ namespace Libplanet.Blockchain
             IComparer<Transaction<T>> txPriority = null,
             CancellationToken cancellationToken = default)
         {
+            Console.WriteLine($"[unirx] MineBlock start");
             using var cts = new CancellationTokenSource();
             using CancellationTokenSource cancellationTokenSource =
                 CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, cts.Token);
@@ -120,6 +121,9 @@ namespace Libplanet.Blockchain
 
             long index = Count;
             long difficulty = Policy.GetNextBlockDifficulty(this);
+            Console.WriteLine($"[unirx] MineBlock current difficulty={difficulty}");
+            Console.WriteLine($"[unirx] policy={Policy.ToString()}");
+            Console.WriteLine($"[unirx] blockchain={this.ToString()}");
             BlockHash? prevHash = index > 0 ? Store.IndexBlockHash(Id, index - 1) : null;
 
             int sessionId = new System.Random().Next();
@@ -175,6 +179,7 @@ namespace Libplanet.Blockchain
 
             try
             {
+                Console.WriteLine($"[unirx] MineBlock 179");
                 preEval = await Task.Run(
                     () => blockContent.Mine(cancellationTokenSource.Token),
                     cancellationTokenSource.Token
@@ -210,6 +215,7 @@ namespace Libplanet.Blockchain
                 block.Difficulty,
                 block.PreviousHash);
 
+            Console.WriteLine($"[unirx] MineBlock 215 append={append}");
             if (append)
             {
                 Append(
@@ -220,6 +226,7 @@ namespace Libplanet.Blockchain
                     actionEvaluations: actionEvaluations);
             }
 
+            Console.WriteLine("[unirx] MineBlock end");
             return block;
         }
 

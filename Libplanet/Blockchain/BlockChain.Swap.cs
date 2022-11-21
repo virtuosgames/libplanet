@@ -287,11 +287,10 @@ namespace Libplanet.Blockchain
             StateCompleterSet<T> stateCompleters)
         {
             DateTimeOffset startTime = DateTimeOffset.UtcNow;
-            _logger.Debug(
-                "Rendering actions in block #{BlockIndex} {BlockHash}...",
-                block.Index,
-                block.Hash);
-
+            Console.WriteLine(
+                $"Rendering actions in block #{block.Index} {block.Hash}...");
+            Console.WriteLine($"BlockChain{typeof(T).ToString()}.RenderActions" +
+                $"evaluations={evaluations != null}");
             if (evaluations is null)
             {
                 evaluations = ActionEvaluator.Evaluate(block, stateCompleters);
@@ -302,20 +301,13 @@ namespace Libplanet.Blockchain
             {
                 foreach (IActionRenderer<T> renderer in ActionRenderers)
                 {
-                    if (evaluation.Exception is null)
-                    {
-                        renderer.RenderAction(
-                            evaluation.Action,
-                            evaluation.InputContext.GetUnconsumedContext(),
-                            evaluation.OutputStates);
-                    }
-                    else
-                    {
-                        renderer.RenderActionError(
-                            evaluation.Action,
-                            evaluation.InputContext.GetUnconsumedContext(),
-                            evaluation.Exception);
-                    }
+                    Console.WriteLine($"evaluation.Exception=" +
+                        $"{evaluation.Exception?.InnerException}");
+
+                    renderer.RenderAction(
+                        evaluation.Action,
+                        evaluation.InputContext.GetUnconsumedContext(),
+                        evaluation.OutputStates);
 
                     count++;
                 }

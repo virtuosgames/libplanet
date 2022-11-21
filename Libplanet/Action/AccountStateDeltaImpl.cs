@@ -71,10 +71,20 @@ namespace Libplanet.Action
 
         /// <inheritdoc/>
         [Pure]
-        IValue? IAccountStateView.GetState(Address address) =>
-            UpdatedStates.TryGetValue(address, out IValue? value)
-                ? value
-                : StateGetter(new[] { address })[0];
+        IValue? IAccountStateView.GetState(Address address)
+        {
+            bool bHave = UpdatedStates.TryGetValue(address, out IValue? value);
+            if (bHave)
+            {
+                Console.WriteLine($"UpdatedStates have address {address.ToString()}");
+                return value;
+            }
+            else
+            {
+                Console.WriteLine($"UpdatedStates don't have address {address.ToString()}");
+                return StateGetter(new[] { address })[0];
+            }
+        }
 
         /// <inheritdoc cref="IAccountStateView.GetStates(IReadOnlyList{Address})"/>
         [Pure]
