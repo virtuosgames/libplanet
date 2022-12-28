@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1672194800897,
+  "lastUpdate": 1672194831928,
   "repoUrl": "https://github.com/virtuosgames/libplanet",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -264,6 +264,66 @@ window.BENCHMARK_DATA = {
             "value": 96430,
             "unit": "ns",
             "range": "± 2856.5894784298043"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "dev.moreal@gmail.com",
+            "name": "Lee Dogeon",
+            "username": "moreal"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f3100842dc32a1be58299371f970c10a9bfe0e99",
+          "message": "Merge pull request #2676 from moreal/correct-log\n\nCorrect logging in `ActionEvaluator`",
+          "timestamp": "2022-12-27T16:21:27+09:00",
+          "tree_id": "f14bea85e4fdc9539b38808afd77fd86434aeb18",
+          "url": "https://github.com/virtuosgames/libplanet/commit/f3100842dc32a1be58299371f970c10a9bfe0e99"
+        },
+        "date": 1672194809081,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Libplanet.Benchmarks.DataModel.DataModelBenchmark.EncodeRootModel",
+            "value": 4982030.286458333,
+            "unit": "ns",
+            "range": "± 60519.1614047602"
+          },
+          {
+            "name": "Libplanet.Benchmarks.DataModel.DataModelBenchmark.EncodeLeafModel",
+            "value": 1507853.4505208333,
+            "unit": "ns",
+            "range": "± 2069.022051742979"
+          },
+          {
+            "name": "Libplanet.Benchmarks.DataModel.DataModelBenchmark.EncodeRawLeafModel",
+            "value": 1135528.6002604167,
+            "unit": "ns",
+            "range": "± 1171.4805080672415"
+          },
+          {
+            "name": "Libplanet.Benchmarks.DataModel.DataModelBenchmark.DecodeRootModel",
+            "value": 2503570.2864583335,
+            "unit": "ns",
+            "range": "± 3587.033594452542"
+          },
+          {
+            "name": "Libplanet.Benchmarks.DataModel.DataModelBenchmark.DecodeLeafModel",
+            "value": 789567.6457331731,
+            "unit": "ns",
+            "range": "± 1068.3897830814824"
+          },
+          {
+            "name": "Libplanet.Benchmarks.DataModel.DataModelBenchmark.DecodeRawLeafModel",
+            "value": 722329.1145833334,
+            "unit": "ns",
+            "range": "± 566.1367555009899"
           }
         ]
       }
