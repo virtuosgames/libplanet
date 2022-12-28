@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1672194862597,
+  "lastUpdate": 1672194893900,
   "repoUrl": "https://github.com/virtuosgames/libplanet",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -378,6 +378,96 @@ window.BENCHMARK_DATA = {
             "value": 26970333.333333332,
             "unit": "ns",
             "range": "± 375627.3469936977"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "dev.moreal@gmail.com",
+            "name": "Lee Dogeon",
+            "username": "moreal"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f3100842dc32a1be58299371f970c10a9bfe0e99",
+          "message": "Merge pull request #2676 from moreal/correct-log\n\nCorrect logging in `ActionEvaluator`",
+          "timestamp": "2022-12-27T16:21:27+09:00",
+          "tree_id": "f14bea85e4fdc9539b38808afd77fd86434aeb18",
+          "url": "https://github.com/virtuosgames/libplanet/commit/f3100842dc32a1be58299371f970c10a9bfe0e99"
+        },
+        "date": 1672194871083,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Libplanet.Benchmarks.Store.PutFirstEmptyBlock",
+            "value": 90882.60869565218,
+            "unit": "ns",
+            "range": "± 6093.982055745465"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.PutFirstBlockWithTxs",
+            "value": 189595.6043956044,
+            "unit": "ns",
+            "range": "± 15980.640455027744"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.PutBlockOnManyBlocks",
+            "value": 184410.95890410958,
+            "unit": "ns",
+            "range": "± 8952.786059903297"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.GetOldBlockOutOfManyBlocks",
+            "value": 3504433.3333333335,
+            "unit": "ns",
+            "range": "± 26618.43256807118"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.GetRecentBlockOutOfManyBlocks",
+            "value": 8643158.333333334,
+            "unit": "ns",
+            "range": "± 41517.760894549334"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.TryGetNonExistentBlockHash",
+            "value": 20252.04081632653,
+            "unit": "ns",
+            "range": "± 2688.126991041595"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.PutFirstTx",
+            "value": 52892.78350515464,
+            "unit": "ns",
+            "range": "± 7758.063646709258"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.PutTxOnManyTxs",
+            "value": 47168.42105263158,
+            "unit": "ns",
+            "range": "± 2985.2567927568653"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.GetOldTxOutOfManyTxs",
+            "value": 97000,
+            "unit": "ns",
+            "range": "± 14468.026049802986"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.GetRecentTxOutOfManyTxs",
+            "value": 5440.816326530612,
+            "unit": "ns",
+            "range": "± 686.8179630512524"
+          },
+          {
+            "name": "Libplanet.Benchmarks.Store.TryGetNonExistentTxId",
+            "value": 18591.397849462366,
+            "unit": "ns",
+            "range": "± 2333.017076009485"
           }
         ]
       }
